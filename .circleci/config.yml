@@ -196,6 +196,8 @@ jobs:
     working_directory: ~/amplify-ios/.swiftpm/xcode
     steps:
       - run:
+          command: ls -la 
+      - run:
           name: Resolve package dependencies
           command: xcodebuild -resolvePackageDependencies || true
       
