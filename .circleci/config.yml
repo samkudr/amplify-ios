@@ -189,6 +189,27 @@ jobs:
       - store_test_results:
           path: build/reports
       - upload_artifacts
+      
+      
+  resolve_package_dependencies:
+    <<: *defaults
+    working_directory: ~/amplify-ios/.swiftpm/xcode
+    steps:
+      - run:
+          name: Resolve package dependencies
+          command: xcodebuild -resolvePackageDependencies || true
+      
+  plugin_spm_build:
+    <<: *defaults
+    parameters:
+      scheme:
+        type: string
+    working_directory: ~/amplify-ios/.swiftpm/xcode
+    description: << parameters.scheme >> SPM build
+    steps:
+      - run:
+          name: Build workspace scheme
+          command: xcodebuild -workspace package.xcworkspace -scheme << parameters.scheme >> -sdk iphonesimulator -destination=“iPhone 11 Pro” | xcpretty
 
   deploy:
     <<: *defaults
@@ -225,6 +246,11 @@ workflows:
   build_test_deploy:
     jobs:
       - checkout_code
+      - resolve_package_dependencies
+      - plugin_spm_build:
+          scheme: AWSDataStorePlugin
+          requires:
+            - resolve_package_dependencies
       - install_gems:
           requires:
             - checkout_code
