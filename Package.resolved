@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/samkudr/aws-sdk-ios-spm.git",
         "state": {
           "branch": null,
-          "revision": "f7f52431b89e6458697f62de6933e0a9c2d884ce",
-          "version": "2.28.1"
+          "revision": "09a4395abfd7e317f6cb70d8abfee1a1aad96824",
+          "version": "2.28.2"
         }
       },
       {
