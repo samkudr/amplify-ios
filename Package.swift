@@ -20,23 +20,10 @@ let package = Package(
         .library(name: "AWSCognitoAuthPlugin",
                  targets: ["AWSCognitoAuthPlugin"]),
         
-        .library(name: "AWSDataStorePlugin",
-                 targets: ["AWSDataStorePlugin"]),
-        
-        .library(name: "AWSLocationGeoPlugin",
-                 targets: ["AWSLocationGeoPlugin"]),
-        
-        .library(name: "AWSPinpointAnalyticsPlugin",
-                 targets: ["AWSPinpointAnalyticsPlugin"]),
-        
-        .library(name: "AWSS3StoragePlugin",
-                 targets: ["AWSS3StoragePlugin"]),
-        
     ],
     dependencies: [
-        .package(name: "AWSiOSSDKV2", url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git", .upToNextMinor(from: "2.28.0")),
+        .package(name: "AWSiOSSDKV2", url: "https://github.com/samkudr/aws-sdk-ios-spm.git", .branch("main")),
         .package(name: "AppSyncRealTimeClient", url: "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git", from: "2.0.0"),
-        .package(url: "https://github.com/stephencelis/SQLite.swift.git", .exact("0.13.2"))
     ],
     targets: [
         .target(
@@ -85,55 +72,5 @@ let package = Package(
                 "Resources/Info.plist"
             ]
         ),
-        .target(
-            name: "AWSDataStorePlugin",
-            dependencies: [
-                .target(name: "Amplify"),
-                .target(name: "AWSPluginsCore"),
-                .product(name: "SQLite", package: "SQLite.swift")],
-            path: "AmplifyPlugins/DataStore/AWSDataStoreCategoryPlugin",
-            exclude: [
-                "Info.plist"
-            ]
-        ),
-        .target(
-            name: "AWSLocationGeoPlugin",
-            dependencies: [
-                .target(name: "Amplify"),
-                .target(name: "AWSPluginsCore"),
-                .product(name: "AWSCore", package: "AWSiOSSDKV2"),
-                .product(name: "AWSLocationXCF", package: "AWSiOSSDKV2")
-            ],
-            path: "AmplifyPlugins/Geo/AWSLocationGeoPlugin",
-            exclude: [
-                "Resources/Info.plist"
-            ]
-        ),
-        .target(
-            name: "AWSPinpointAnalyticsPlugin",
-            dependencies: [
-                .target(name: "Amplify"),
-                .target(name: "AWSPluginsCore"),
-                .product(name: "AWSCore", package: "AWSiOSSDKV2"),
-                .product(name: "AWSPinpoint", package: "AWSiOSSDKV2")
-            ],
-            path: "AmplifyPlugins/Analytics/AWSPinpointAnalyticsPlugin",
-            exclude: [
-                "Resources/Info.plist"
-            ]
-        ),
-        .target(
-            name: "AWSS3StoragePlugin",
-            dependencies: [
-                .target(name: "Amplify"),
-                .target(name: "AWSPluginsCore"),
-                .product(name: "AWSCore", package: "AWSiOSSDKV2"),
-                .product(name: "AWSS3", package: "AWSiOSSDKV2")
-            ],
-            path: "AmplifyPlugins/Storage/AWSS3StoragePlugin",
-            exclude: [
-                "Resources/Info.plist"
-            ]
-        )
     ]
 )
