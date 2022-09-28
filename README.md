@@ -1,3 +1,10 @@
+## Changes for Mac Catalyst
+
+Redirected to use [forked aws-sdk-ios-spm](https://github.com/samkudr/aws-sdk-ios-spm). Some *unnecessary* stuff are removed. Small fixes so it compiles for Catalyst.
+
+To separate this repository version tags from the [source](https://github.com/aws-amplify/amplify-ios) an arbitrary number (10) is set for the major portion.
+
+
 ## Amplify for iOS
 <img src="https://s3.amazonaws.com/aws-mobile-hub-images/aws-amplify-logo.png" alt="AWS Amplify" width="550" >
 AWS Amplify provides a declarative and easy-to-use interface across different categories of cloud operations. AWS Amplify goes well with any JavaScript based frontend workflow, and React Native for mobile developers.
