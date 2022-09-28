@@ -14,9 +14,9 @@
         "package": "AWSiOSSDKV2",
         "repositoryURL": "https://github.com/samkudr/aws-sdk-ios-spm.git",
         "state": {
-          "branch": "main",
-          "revision": "e90482148c6d75f620b063edbb487646be9cf30a",
-          "version": null
+          "branch": null,
+          "revision": "f7f52431b89e6458697f62de6933e0a9c2d884ce",
+          "version": "2.28.1"
         }
       },
       {

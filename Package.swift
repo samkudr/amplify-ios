@@ -22,7 +22,7 @@ let package = Package(
         
     ],
     dependencies: [
-        .package(name: "AWSiOSSDKV2", url: "https://github.com/samkudr/aws-sdk-ios-spm.git", .branch("main")),
+        .package(name: "AWSiOSSDKV2", url: "https://github.com/samkudr/aws-sdk-ios-spm.git", .upToNextMinor(from: "2.28.1")),
         .package(name: "AppSyncRealTimeClient", url: "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git", from: "2.0.0"),
     ],
     targets: [
