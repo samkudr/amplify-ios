@@ -179,11 +179,6 @@ struct AuthErrorHelper {
     }
 
     static func didUserCancelHostedUI(_ error: Error) -> Bool {
-        if let sfAuthError = error as? SFAuthenticationError,
-           case SFAuthenticationError.Code.canceledLogin = sfAuthError.code {
-            return true
-        }
-
         if #available(iOS 12.0, *) {
 
             if let asWebAuthError = error as? ASWebAuthenticationSessionError,
